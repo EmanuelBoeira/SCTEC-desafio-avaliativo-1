@@ -51,6 +51,7 @@ print('-'*50)
 
 print(df_varejo.isnull().sum())
 print('-'*50)
+print(df_varejo.info())
 
 #transformation of #n/d in NaN
 #df_varejo.loc[df_varejo['PR_CAT'] == '#n/d', 'PR_CAT'] = pd.NA   #using loc
