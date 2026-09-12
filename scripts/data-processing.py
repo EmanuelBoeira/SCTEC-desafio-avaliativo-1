@@ -55,19 +55,11 @@ print('-'*50)
 print(df_varejo.info())
 print('-'*50)
 
-#transformation of #n/d in NaN
-#df_varejo.loc[df_varejo['PR_CAT'] == '#n/d', 'PR_CAT'] = pd.NA   #using loc
-df_varejo['PR_CAT'] = df_varejo['PR_CAT'].replace('#n/d', pd.NA)  #using replace
-
-df_varejo['PR_NOME'] = df_varejo['PR_NOME'].replace('#n/d', pd.NA)
-
-#filling values NaN with the mode(most repeated value)
-#df_varejo['PR_CAT'].fillna(df_varejo['PR_CAT'].mode()[0], inplace=True)
-#df_varejo['PR_NOME'].fillna(df_varejo['PR_NOME'].mode()[0], inplace=True)
-
 #filling values NaN with 'desconhecido', to identify furter
-df_varejo['PR_CAT'].fillna('desconhecido', inplace=True)
-df_varejo['PR_NOME'].fillna('desconhecido', inplace=True)
+if '#n/d' in df_varejo['PR_CAT'].values:
+    df_varejo['PR_CAT'].replace('#n/d', 'desconhecido', inplace=True)
+elif '#n/d' in df_varejo['PR_NOME'].values:
+    df_varejo['PR_NOME'].replace('#n/d', 'desconhecido', inplace=True)
 
 #creates a new csv with alterations
 df_varejo.to_csv('./data/processed/varejo_processed.csv', index=False)
