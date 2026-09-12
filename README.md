@@ -30,3 +30,16 @@ No diretório principal, execute:
 
   `python scripts/data-processing.py`
 
+
+# Sobre a análise
+
+## Processamento dos dados
+
+- Haviam 3 colunas vazias que form removidas.
+- A coluna CL_GENERO foi tratada com spli() e upper().
+- Todas as outras colunas de texto foram tratadas com split() e lower()
+- As colunas numéricas já estavam com o tipo certo.
+- Haviam 96.553 duplicatas.
+- A quantidade de linhas duplicadas foi adicionada em uma nova coluna chamada 'quantidades'. Já que o DataFrame é de um varejo, foi escolhido esse método pois as linhas repetidas podem representar mais unidades de um mesmo pedido.
+- Não há nulos identificados pelo pandas, mas haviam entradas com o valor #n/d nas colunas PR_CAT e PR_NOME.
+- Esses valores inadequados foram substituidos por NaN e depois por 'desconhecido'

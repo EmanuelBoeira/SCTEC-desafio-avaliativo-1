@@ -7,7 +7,6 @@ import matplotlib.pyplot as plt
 
 df = pd.read_csv('./data/processed/varejo_processed.csv', parse_dates=['DATA'])
 
-#print(df['CL_FHL'].head())
 print(df.info())
 print('-' * 20)
 
