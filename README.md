@@ -27,7 +27,8 @@ ao final da execução ele retorna uma breve descrição no terminal do que foi 
 
 No diretório principal, execute:
 
-  `python scripts/data-processing.py`
+  `python scripts/data-processing.py` (para executar o tratamento dos dados)
+  `python scripts/data-analysis.py` (para executar a análise dos dados)
 
 
 # Sobre a análise
@@ -48,16 +49,16 @@ No diretório principal, execute:
 - A maioria dos clientes não tem filho, isso é perceptível pela moda dessa informação.
 - A média de filhos por cliente é de 1,14 filhos.
 - Os 5 produtos mais vendidos são:
-    - presunto cozido 12.719 Un.
-    - sardinha         6.610 Un.
-    - banana           6.518 Un.
-    - escova de dente  6.518 Un.
-    - gel              6.517 Un.
+    - presunto cozido  (12.719 Un.)
+    - sardinha         (6.610 Un.)
+    - banana           (6.518 Un.)
+    - escova de dente  (6.518 Un.)
+    - gel              (6.517 Un.)
 - O gênero feminino é o que apresenta mais compras.
 - Ordem de segmentos com mais vendas:
-    - b 530.163 Un.
-    - c 232.101 Un.
-    - a  67.736 Un.
+    - b  (530.163 Un.)
+    - c  (232.101 Un.)
+    - a  (67.736 Un.)
 - Ao analisar o gráfico de vendas ao longo do tempo:
     - Nos anos de 2020 a 2021 houve um aumento de vendas no final do ano, a partir do mês 10(outubro)
     - A partir de outubro de 2022 houve uma queda grande de vendas.
