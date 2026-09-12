@@ -28,6 +28,7 @@ ao final da execução ele retorna uma breve descrição no terminal do que foi 
 No diretório principal, execute:
 
   `python scripts/data-processing.py` (para executar o tratamento dos dados)
+  
   `python scripts/data-analysis.py` (para executar a análise dos dados)
 
 
