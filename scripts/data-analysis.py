@@ -5,7 +5,7 @@ sys.path.append('./data/processed/')
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df = pd.read_csv('./data/processed/varejo_processed.csv')
+df = pd.read_csv('./data/processed/varejo_processed.csv', parse_dates=['DATA'])
 
 #print(df['CL_FHL'].head())
 print(df.info())
@@ -39,25 +39,30 @@ print('Segmentos com mais vendas:\n')
 print(df.groupby('CL_SEG')['quantidade'].sum().sort_values(ascending=False))
 print('-' * 20)
 
-#plot sales in time
-fig, ax = plt.subplots()
-
-df['DATA'] = pd.to_datetime(df['DATA'], format='mixed')
+#plot of sales in time and sales by category
+fig, ax = plt.subplots(1,2)
 
 sales = df.groupby(df['DATA'].dt.to_period('M'))['quantidade'].sum()
 sales.index = sales.index.to_timestamp()
 
-ax.plot(sales)
+quant_by_category = df.groupby('PR_CAT')['quantidade'].sum().sort_values(ascending=False)
 
-plt.xlabel('Ano - Mês')
-plt.ylabel('Vendas(Un.)')
+ax[0].plot(sales)
+ax[0].set_xlabel('Ano - Mês')
+ax[0].set_ylabel('Vendas(Un.)')
+ax[0].set_title('Quantidade de vendas por mês.')
+
+ax[1].bar(quant_by_category.index, quant_by_category, 0.4)
+ax[1].set_title('Quantidade total de vendas por categoria.')
+
 plt.show()
 
 print(
     '''
-    OBS.: A coluna data havia sido convertida para datetime
+    OBS.: A coluna DATA havia sido convertida para datetime
     no script anterior, mas essa alteração não foi repassada
-    para esse código. Não sei o motivo.
+    para esse código. Isso ocorre porque o arquivo CSV não
+    armazena os tipos das colunas, o pandas é quem faz isso.
 
     - A primeira tabela mostra os 5 compradores
     com maiores compras pelo ID.
@@ -80,5 +85,16 @@ print(
         a:  67.736
         b: 530.163
         c: 232.101
+
+    - Análise do gráfico de vendas ao longo do tempo:
+        - Nos anos de 2020 2021 houve um aumento de vendas no final
+        do ano, a partir do mês 10 (outubro).
+        - A partir de outubro de 2022 houve uma queda brusca de vendas.
+        - Seria importante analisar os momentos de picos para determinar
+        seu motivo, já que não há relação direta nos os dados fornecidos.
+
+    - Análise do gráfico de vendas por categoria:
+        - Alimentos é a categoria com maiores vendas.
+        - Acessórios é a categoria com menores vendas.
     '''
 )

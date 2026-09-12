@@ -63,15 +63,12 @@ df_varejo['PR_NOME'] = df_varejo['PR_NOME'].replace('#n/d', pd.NA)
 #df_varejo['PR_CAT'].fillna(df_varejo['PR_CAT'].mode()[0], inplace=True)
 #df_varejo['PR_NOME'].fillna(df_varejo['PR_NOME'].mode()[0], inplace=True)
 
-#filling values NaN with 'ausente', to identify furter
-df_varejo['PR_CAT'].fillna('ausente', inplace=True)
-df_varejo['PR_NOME'].fillna('ausente', inplace=True)
+#filling values NaN with 'desconhecido', to identify furter
+df_varejo['PR_CAT'].fillna('desconhecido', inplace=True)
+df_varejo['PR_NOME'].fillna('desconhecido', inplace=True)
 
 #creates a new csv with alterations
 df_varejo.to_csv('./data/processed/varejo_processed.csv', index=False)
-
-#TODO
-#criar csv limpo,
 
 print(
 '''
