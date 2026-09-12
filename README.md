@@ -20,7 +20,6 @@ ao final da execução ele retorna uma breve descrição no terminal do que foi 
 # Dependências
 
 - pandas
-- numpy
 - matplotlib
 
 
@@ -42,4 +41,29 @@ No diretório principal, execute:
 - Haviam 96.553 duplicatas.
 - A quantidade de linhas duplicadas foi adicionada em uma nova coluna chamada 'quantidades'. Já que o DataFrame é de um varejo, foi escolhido esse método pois as linhas repetidas podem representar mais unidades de um mesmo pedido.
 - Não há nulos identificados pelo pandas, mas haviam entradas com o valor #n/d nas colunas PR_CAT e PR_NOME.
-- Esses valores inadequados foram substituidos por NaN e depois por 'desconhecido'
+- Esses valores inadequados foram substituidos por NaN e depois por 'desconhecido'.
+
+## Análise dos dados
+- A maior compra foi de 89 produtos.
+- A maioria dos clientes não tem filho, isso é perceptível pela moda dessa informação.
+- A média de filhos por cliente é de 1,14 filhos.
+- Os 5 produtos mais vendidos são:
+    - presunto cozido 12.719 Un.
+    - sardinha         6.610 Un.
+    - banana           6.518 Un.
+    - escova de dente  6.518 Un.
+    - gel              6.517 Un.
+- O gênero feminino é o que apresenta mais compras.
+- Ordem de segmentos com mais vendas:
+    - b 530.163 Un.
+    - c 232.101 Un.
+    - a  67.736 Un.
+- Ao analisar o gráfico de vendas ao longo do tempo:
+    - Nos anos de 2020 a 2021 houve um aumento de vendas no final do ano, a partir do mês 10(outubro)
+    - A partir de outubro de 2022 houve uma queda grande de vendas.
+    - Seria importante analisar os momentos de pico isoladamente para determinar seu motivo, já que os dados presentes não expecificam uma correlação com as datas.
+- Ao analisar o gráfico de vendas por categoria:
+    - Alimentos é a categoria com mais vendas.
+    - Acessórios é a categoria com menos vendas.
+
+
